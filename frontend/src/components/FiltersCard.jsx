@@ -13,7 +13,7 @@ const useStyles = makeStyles({
         width: '88%',
         backgroundColor: "white",
         boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .1)',
-        marginBottom : "10%",
+        marginBottom : "11%",
         borderRadius: "1vh",
         display : 'flex',
         justifyContent : 'center',
@@ -25,16 +25,23 @@ const useStyles = makeStyles({
             cursor : "pointer",
             transform : "scale(1.05)"
         },
-        marginLeft : '1vw'
     },
     filtersCarroussel: {
 
         textAlign : 'center'
     },
+    filtersUnderLine: {
+        height : '1vh',
+        width : '20%',
+        marginBottom : '11%',
+        backgroundColor : 'red',
+        borderRadius : '100vh'
+    },
 });
 
 export default function FiltersCard(props) {
     const classes = useStyles();
+    const [filterActive, setFilterActive] = useState(false);
 
 
     const setFilter = event => {
@@ -43,13 +50,21 @@ export default function FiltersCard(props) {
             props.setSelectedFilter(res.data.drinks)
         }).catch((error) => {console.log(error)})
     }
+
     return (
-        <Box className={classes.card} onClick={e => setFilter(e.target.value)}  >
-            <Grid container >
-                <Grid item xs={12} className={classes.filtersCarroussel}>
-                    {props.name}
+        <div style={{     display : 'flex',
+        justifyContent : 'center',
+        alignItems : 'center',
+        flexDirection : 'column'}} >
+            <Box className={classes.card} onClick={e => setFilter(e.target.value)}  >
+                <Grid container >
+                    <Grid item xs={12} className={classes.filtersCarroussel}>
+                        {props.name}
+                    </Grid>
+
                 </Grid>
-            </Grid>
-         </Box>
+            </Box>
+            {/* { filterActive ?  <div className={classes.filtersUnderLine}/> :  <div/>} */}
+        </div>
     )
 }

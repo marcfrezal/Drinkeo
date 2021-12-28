@@ -20,7 +20,11 @@ const useStyles = makeStyles({
       display : 'flex',
       justifyContent : 'center',
       alignItems : 'center',
-      fontWeight : 900
+      fontWeight : 900,
+      '&:hover': {
+        cursor : "pointer",
+        transform : "scale(1.05)"
+    },
     },
     box: {
         height: '100vh',

@@ -20,7 +20,7 @@ const useStyles = makeStyles({
       display : 'flex',
       justifyContent : 'center',
       alignItems : 'center',
-      fontWeight : 900
+      fontWeight : 900,
     },
     box: {
         height: '100vh',
@@ -42,7 +42,6 @@ export default function Drinks() {
     const classes = useStyles();
     const [selectedFilter, setSelectedFilter] = useState();
 
-    console.log(selectedFilter);
     return (
         <Box className={classes.box}>
             <Grid container spacing={0}>
